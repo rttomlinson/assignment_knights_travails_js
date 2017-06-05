@@ -54,7 +54,6 @@ class MoveTree {
                 return true;
             });
             nextCoordinates.forEach(coordinate => {
-                console.log(node.matrix);
 
                 if (node.matrix[coordinate[0] - 1][coordinate[1] - 1] !== 1) {
                     let newMatrix = [[...node.matrix[0]], [...node.matrix[1]], [...node.matrix[2]], [...node.matrix[3]], [...node.matrix[4]],[...node.matrix[5]], [...node.matrix[6]], [...node.matrix[7]]];
@@ -87,6 +86,6 @@ class MoveTree {
 module.exports = MoveTree;
 
 //generate moves
-let tree = new MoveTree([3, 3], 4);
+//let tree = new MoveTree([3, 3], 4);
 // console.log(tree.root.children[0]);
-tree.inspect();
+//tree.inspect();
