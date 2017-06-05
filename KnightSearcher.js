@@ -1,5 +1,5 @@
 const MoveTree = require("./MoveTree");
-const knight_tree = new MoveTree([1, 1], 15);
+const knight_tree = new MoveTree([3, 3], 3);
 class KnightSearcher {
   constructor(tree) {
     this.tree = tree;
