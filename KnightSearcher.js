@@ -1,5 +1,5 @@
 const MoveTree = require("./MoveTree");
-const knight_tree = new MoveTree([1, 1], 7);
+const knight_tree = new MoveTree([1, 1], 15);
 class KnightSearcher {
   constructor(tree) {
     this.tree = tree;
@@ -44,7 +44,7 @@ class KnightSearcher {
 }
 
 const searcher = new KnightSearcher(knight_tree);
-let searchResults = searcher.bfsFor([2, 3]);
+let searchResults = searcher.dfsFor([1, 8]);
 console.log(
   `Depth: ${searchResults.depth}. Path: ${JSON.stringify(searchResults.path)}`
 );

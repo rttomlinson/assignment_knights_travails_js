@@ -12,6 +12,8 @@ class MoveTree {
   generateMoves(node, maxDepth) {
     let queue = [node];
     let matrix = [[], [], [], [], [], [], [], []];
+    //because positions are 1-8
+    matrix[node.x - 1][node.y - 1];
     const nextMoves = (node, matrix) => {
       let nodeX = node.x;
       let nodeY = node.y;
@@ -32,14 +34,13 @@ class MoveTree {
         return [move[0] + nodeX, move[1] + nodeY];
       });
       nextCoordinates = nextCoordinates.filter(coordinates => {
-        console.log(matrix);
         if (
           coordinates[0] > 8 ||
           coordinates[0] < 1 ||
           (coordinates[1] > 8 || coordinates[1] < 1)
         ) {
           return false;
-        } else if (matrix[coordinates[0]][coordinates[1]]) {
+        } else if (matrix[coordinates[0] - 1][coordinates[1] - 1]) {
           return false;
         }
         return true;
@@ -48,7 +49,7 @@ class MoveTree {
         node.children.push(
           new Move(coordinate[0], coordinate[1], node.depth + 1, [], node)
         );
-        matrix[coordinate[0]][coordinate[1]] = 1;
+        matrix[coordinate[0] - 1][coordinate[1] - 1] = 1;
         ++this.moves;
       });
     };
